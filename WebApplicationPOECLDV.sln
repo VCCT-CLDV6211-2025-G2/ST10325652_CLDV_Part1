@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationPOECLDV", "WebApplicationPOECLDV\WebApplicationPOECLDV.csproj", "{467C44E6-0E47-4075-862C-F1C82CBDB8EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{467C44E6-0E47-4075-862C-F1C82CBDB8EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{467C44E6-0E47-4075-862C-F1C82CBDB8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{467C44E6-0E47-4075-862C-F1C82CBDB8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{467C44E6-0E47-4075-862C-F1C82CBDB8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1004D769-3056-4CA6-A87C-FA877CABE3A4}
+	EndGlobalSection
+EndGlobal
