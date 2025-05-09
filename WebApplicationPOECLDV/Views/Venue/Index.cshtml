@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.VenueName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Location)
@@ -21,9 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Capacity)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageURL)
-            </th>
+            <th>Image</th>
             <th></th>
         </tr>
     </thead>
@@ -31,7 +29,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.VenueName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
@@ -40,7 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Capacity)
             </td>
             <td>
-                <img src="@item.ImageURL" alt="Venue Image" style="width: 100px; height: auto;" />
+                <img src="@item.ImageUrl" alt="Venue Image" style="width: 100px; height: auto;" />
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a>

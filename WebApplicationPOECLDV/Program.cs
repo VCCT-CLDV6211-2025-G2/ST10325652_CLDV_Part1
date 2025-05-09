@@ -1,5 +1,7 @@
+using Azure.Storage.Blobs;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationPOECLDV.Models;
+using WebApplicationPOECLDV.Services;
 
 namespace WebApplicationPOECLDV
 {
@@ -9,11 +11,21 @@ namespace WebApplicationPOECLDV
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Configure SQL Server Database (Using 'DefaultConnection' from JSON)
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Configure Azure Blob Storage
+            builder.Services.AddSingleton<BlobStorageService>();
+       //     {
+                //var config = sp.GetRequiredService<IConfiguration>();
+                //return new BlobServiceClient(config["AzureBlobStorage:ConnectionString"]);
+           // });
+
+            // Add services to the container.
+            
 
             var app = builder.Build();
 

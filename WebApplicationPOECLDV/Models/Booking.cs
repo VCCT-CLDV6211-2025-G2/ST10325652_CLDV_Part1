@@ -7,7 +7,7 @@
         public Venue? Venue { get; set; }
         public int EventId { get; set; }
         public Event? Event { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime BookingDate { get; set; }
 
     }
 }

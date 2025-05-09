@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationPOECLDV.Models;
+using WebApplicationPOECLDV.Services;
 
 namespace WebApplicationPOECLDV.Controllers
 {
@@ -22,15 +23,18 @@ namespace WebApplicationPOECLDV.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Venue venue)
+        public async Task<IActionResult> Create(Venue venue, IFormFile imageFile, [FromServices] BlobStorageService blobService, [FromServices] IConfiguration config)
         {
-            if (ModelState.IsValid)
+            if (imageFile != null && imageFile.Length > 0)
             {
-                _context.Add(venue);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                string containerName = config["AzureStorage:VenueContainer"];
+                string imageUrl = await blobService.UploadFileAsync(imageFile, containerName);
+                venue.ImageUrl = imageUrl;
             }
-            return View(venue);
+
+            _context.Add(venue);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Details(int? id)
         {
