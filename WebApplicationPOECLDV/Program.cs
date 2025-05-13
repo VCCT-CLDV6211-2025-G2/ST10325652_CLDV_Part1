@@ -11,6 +11,7 @@ namespace WebApplicationPOECLDV
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             // Configure SQL Server Database (Using 'DefaultConnection' from JSON)
@@ -19,13 +20,7 @@ namespace WebApplicationPOECLDV
 
             // Configure Azure Blob Storage
             builder.Services.AddSingleton<BlobStorageService>();
-       //     {
-                //var config = sp.GetRequiredService<IConfiguration>();
-                //return new BlobServiceClient(config["AzureBlobStorage:ConnectionString"]);
-           // });
-
-            // Add services to the container.
-            
+            builder.Services.AddScoped<EventService>();
 
             var app = builder.Build();
 

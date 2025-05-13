@@ -18,9 +18,10 @@
                     <option value="">-- Select Venue --</option>
                     @foreach(var venue in ViewBag.Venues)
                     {
-                        <option value="@venue.Id">@venue.Name</option>
+                        <option value="@venue.Id">@venue.VenueName</option>
                     }
                 </select>
+                <span asp-validation-for="VenueId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EventId" class="control-label"></label>
@@ -28,13 +29,14 @@
                     <option value="">-- Select Event --</option>
                     @foreach (var eventModel in ViewBag.Events)
                     {
-                        <option value="@eventModel.Id">@eventModel.Name</option>
+                        <option value="@eventModel.Id">@eventModel.EventName</option>
                     }
                 </select>
+                <span asp-validation-for="EventId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BookingDate" class="control-label"></label>
-                <input asp-for="BookingDate" class="form-control" />
+                <input asp-for="BookingDate" class="form-control" type="date"/>
                 <span asp-validation-for="BookingDate" class="text-danger"></span>
             </div>
             <div class="form-group">

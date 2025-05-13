@@ -6,11 +6,16 @@
 
 <h1>Create</h1>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
 <h4>Venue</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" enctype=" multipart/form-data" method="post">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VenueName" class="control-label"></label>
@@ -30,6 +35,7 @@
             <div class="form-group">
                 <label for="imageFile">Upload Image</label>
                 <input type="file" name="imageFile" class="form-control" />
+                <span class="text-danger">@ViewData["ImageError"]</span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

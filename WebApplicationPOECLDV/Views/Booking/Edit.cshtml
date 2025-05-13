@@ -6,6 +6,11 @@
 
 <h1>Edit</h1>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
 <h4>Booking</h4>
 <hr />
 <div class="row">
